@@ -12,6 +12,19 @@ List of dependencies : <br/>
     - morgan version: ^1.10.0 (For Dev) <br/> 
     - nodemon version: ^2.0.22 (For Dev, Remove package on production) <br/>
 
-</i></p>
+</i></p><br/>
+<h3>  Database set-up after create</h3>
+<p>we use Sequelize-cli (commande to add: <b>npm install sequelize-cli -g</b> ) </p>
+<i> step to use : <br/>
+    1- Move to database folder in terminal and use <b>'sequelize init'</b></br>
+    2- Create Migration buy usin : <b>'sequelize migration:create --name tableName'</b></br>
+    3- To migrate we use <b>'sequelize db:migrate'</b></br>
+</i>
+</br>
+<u><b>Note:</u></b> You can change database configuration in file 'database/config/config.js'
+<br/>
+<br/>
+<br/>
+
 
 Although this project is completely free for use, I appreciate any support!
