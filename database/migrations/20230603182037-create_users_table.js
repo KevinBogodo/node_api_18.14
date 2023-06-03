@@ -1,7 +1,11 @@
-const Sequelize = require("sequelize");
+'use strict';
 
-module.exports = sequelize.define('User', {
-    id: {
+/** @type {import('sequelize-cli').Migration} */
+
+module.exports = {
+  async up (queryInterface, Sequelize) {
+    queryInterface.createTable("users", {
+      id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
@@ -17,11 +21,7 @@ module.exports = sequelize.define('User', {
       email: {
         type: Sequelize.STRING,
         allowNull: false,
-        unique: { msg : 'Email already in use !' },
-        validate: {
-          isEmail: { msg: 'Enter valid email.' },
-          notNull: { msg: 'The email is a required property.' }
-        }
+        unique: { msg : 'Email already in use !' }
       },
       phone1: {
         type: Sequelize.STRING,
@@ -50,4 +50,13 @@ module.exports = sequelize.define('User', {
         type: Sequelize.STRING,
         allowNull: false,
       },
-});
+      createdAt: Sequelize.DATE,
+      updatedAt: Sequelize.DATE,
+
+    })
+  },
+
+  async down (queryInterface, Sequelize) {
+    queryInterface.dropTable("users");
+  }
+};

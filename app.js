@@ -1,7 +1,7 @@
 const express =  require("express");
 const bodyParser = require("body-parser");
 const cors = require('cors');
-const router = express.Router();
+const router = require('./routes/index');
 
 // DB Connexion
 require("./database/connexion");
@@ -18,9 +18,7 @@ app.use(cors())
     .use(router)
 
 
-app.get('/', (req, res) => {
-    res.json('Hello word !')
-})
+
 
 app.listen(port, err => {
     if (err) return console.log(`Cannot Listen on Port: ${port}`);
